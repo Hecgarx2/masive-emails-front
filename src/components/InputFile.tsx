@@ -1,11 +1,14 @@
 import { useState } from "react";
 
-function InputFile() {
+function InputFile({onFileSelect}: {onFileSelect: (file: File) => void}) {
   const [file, setFile] = useState<File | null>(null);
 
-  const handleFileChange = (e: any) => {
-    const file = e.target.files[0];
-    if (file) setFile(file);
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newFile  = e.target.files?.[0];
+    if (newFile ) {
+        setFile(newFile);
+        onFileSelect(newFile);
+    }
   };
   return (
     <>
@@ -29,7 +32,7 @@ function InputFile() {
             {file ? file.name : "Haz clic o arrastra un archivo"}
           </p>
         </div>
-        <input type="file" className="hidden" onChange={handleFileChange} accept=".csv"/>
+        <input type="file" className="hidden" onChange={handleFileChange} accept=".csv, .xlsx"/>
       </label>
     </>
   );
