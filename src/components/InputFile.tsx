@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as XSLX from 'xlsx';
 
 function InputFile({onFileSelect}: {onFileSelect: (file: File) => void}) {
   const [file, setFile] = useState<File | null>(null);
@@ -32,7 +33,7 @@ function InputFile({onFileSelect}: {onFileSelect: (file: File) => void}) {
             {file ? file.name : "Haz clic o arrastra un archivo"}
           </p>
         </div>
-        <input type="file" className="hidden" onChange={handleFileChange} accept=".csv, .xlsx"/>
+        <input type="file" className="hidden" onChange={handleFileChange} accept=".csv, .xlsx, .xsl"/>
       </label>
     </>
   );

@@ -9,7 +9,6 @@ function MassUpload() {
       console.log("No file selected");
       return;
     }
-    // Llamar al servicio de subida de archivos
     uploadFile(file);
   };
   return (
