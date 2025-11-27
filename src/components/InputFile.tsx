@@ -1,5 +1,4 @@
 import { useState } from "react";
-import * as XSLX from 'xlsx';
 
 function InputFile({onFileSelect}: {onFileSelect: (file: File) => void}) {
   const [file, setFile] = useState<File | null>(null);
